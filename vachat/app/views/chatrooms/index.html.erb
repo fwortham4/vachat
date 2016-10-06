@@ -1,1 +1,5 @@
 I am the Homepage!
+
+<% @chatrooms.each do |chatroom| %>
+  <a href="chatrooms/<%= chatroom.id %>"<%= chatroom.topic %>></a>
+<% end %>
