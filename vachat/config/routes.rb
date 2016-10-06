@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   root 'chatrooms#index'
-  resource :chatrooms
+
+  resource :chatrooms#, param: :id
+  get '/chatrooms/:id' => 'chatrooms#show'
+
+  resources :messages
 end
