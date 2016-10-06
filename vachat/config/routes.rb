@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root 'chatrooms#index'
 
-  resource :chatrooms#, param: :id
+  resources :chatrooms#, param: :id
   get '/chatrooms/:id' => 'chatrooms#show'
 
   resources :messages

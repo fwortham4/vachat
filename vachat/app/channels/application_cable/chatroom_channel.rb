@@ -1,7 +1,7 @@
 class ChatChannel < ApplicationCable::Channel
   def subscribed
     # What goes here????
-    stream_from "chatroom"
+    stream_from "messages"
   end
 
   def receive(data)
