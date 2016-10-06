@@ -1,8 +1,9 @@
 class MessagesController < ApplicationController
+  include SessionHelper
 
   def create
     message = Message.new(message_params)
-    # message.user = current_user
+    message.user = User.first
     if message.save
       ActionCable.server.broadcast 'messages',
         message: message.content
