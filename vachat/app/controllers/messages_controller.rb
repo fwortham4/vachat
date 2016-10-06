@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
     message.user = User.first
     if message.save
       ActionCable.server.broadcast 'messages',
+        email: message.user.email,
         message: message.content
       head :ok
     else
