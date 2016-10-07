@@ -13,14 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require cable
 //= require_tree ./channels
-
 
 /////////////////////
 // (function() {
 //   this.App || (this.App = {});
 
-//   App.cable = ActionCable.createConsumer("ws://cable.example.com");
+//   App.cable = ActionCable.createConsumer("redis://localhost:6379");
 // }).call(this);
 
 // The ws://cable.example.com address must point to your Action Cable server(s), and it must share a cookie namespace with the rest of the application (which may live under http://example.com). This ensures that the signed cookie will be correctly sent.
