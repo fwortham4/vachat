@@ -1,14 +1,27 @@
-I am the Homepage!
+Welcome to VA Chat!
 <br>
 
 <% if !@user %>
 <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+<% else %>
+<p>Welcome <b><%= @user.email %></b></p>
+<p>Create a new chatroom:</p>
+<%= form_for  @new_chatroom do |f| %>
+<%= f.label :topic  %>
+<%= f.text_field :topic %>
+<%= f.label :private %>
+<%= f.check_box :private %>
+<%= f.submit %>
+<% end %>
 <% end %>
 
-<%= @user.email %>
 
-
-
-<% @chatrooms.each do |chatroom| %>
+<h3>Public Chatrooms</h3>
+<% @public_chatrooms.each do |chatroom| %>
   <a href="chatrooms/<%= chatroom.id %>"><%= chatroom.topic %></a><br>
+<% end %>
+
+<h3>Join a private chat:</h3>
+<%= @open_private_chats.each do |p| %>
+<a href="chatrooms/<%= p.id %>"> <%= p.topic %></a><br>
 <% end %>

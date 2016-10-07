@@ -1,11 +1,12 @@
 class MessagesController < ApplicationController
-  include SessionHelper
 
   def create
     message = Message.new(message_params)
-    message.user = User.first
+    p current_user.email
+    p "user email============================================="
+    message.user = current_user
     if message.save
-      ActionCable.server.broadcast 'messages',
+      ActionCable.server.broadcast "chatrooms_#{message.chatroom_id}_channel",
         email: message.user.email,
         message: message.content
       head :ok

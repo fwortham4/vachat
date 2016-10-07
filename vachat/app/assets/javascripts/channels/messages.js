@@ -1,4 +1,4 @@
-App.messages = App.cable.subscriptions.create('MessagesChannel', {
+App.messages = App.cable.subscriptions.create('ChatroomChannel', {
   received: function(data) {
     $("#messages").removeClass('hidden')
     return $('#messages').append(this.renderMessage(data));
