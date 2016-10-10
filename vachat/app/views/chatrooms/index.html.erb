@@ -22,6 +22,7 @@ Welcome to VA Chat!
 <% end %>
 
 <h3>Join a private chat:</h3>
-<%= @open_private_chats.each do |p| %>
-<a href="chatrooms/<%= p.id %>"> <%= p.topic %></a><br>
-<% end %>
+<a href="chatrooms/<%= @private_room.id %>"><%= @private_room.topic %></a>
+<%# @open_private_chats.each do |p| %>
+<!-- <a href="chatrooms/<%# p.id %>"> <%# p.topic %></a><br> -->
+<%# end %>

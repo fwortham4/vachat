@@ -5,6 +5,8 @@ class ChatroomsController < ApplicationController
     @new_chatroom = Chatroom.new
     @public_chatrooms = Chatroom.public_rooms
     @open_private_chats = Chatroom.open_private_rooms
+    @private_room = Chatroom.find(2)
+
   end
 
   def show
